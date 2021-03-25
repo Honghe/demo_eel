@@ -15,7 +15,19 @@ Hello, World!
 <button onclick="eel.Open()">Test Python subprocess</button>
 
 <button onclick="getFolder()">Open folder</button>
-<button onclick="getFile()">Open file</button>
+
+<div>
+    <button onclick="getFile()">Open file</button>
+    <input type="text" id="selected_file"><br>
+    <label>prologue length</label><input id="prologue" type="number">s<br>
+    <label>epilogue length</label><input id="epilogue" type="number">s<br>
+    <button onclick="process_file()">Submit</button>
+</div>
+<div id="loader" style="display: none">
+    <div class="loader"></div>
+    <div>Loading</div>
+</div>
+<div id="loader_end" style="display: none"></div>
 
 </body>
 </html>

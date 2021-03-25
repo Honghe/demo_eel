@@ -34,6 +34,14 @@ def btn_get_file():
     return root.filename
 
 
+@eel.expose
+def process_file(filepath, prologue, epilogue):
+    print('process_file')
+    time.sleep(5)
+    print('process end')
+    return 'OK'
+
+
 def parsing(url):
     print(f'parsing {url}')
     print(f'sleep')
