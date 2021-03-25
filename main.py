@@ -1,4 +1,6 @@
 # -*- coding:utf8 -*-
+import os
+from tkinter import Tk, filedialog
 
 import eel
 from multiprocessing import Pool, freeze_support
@@ -11,8 +13,25 @@ print('import')
 def Open():
     url_list = [1]
     pool.map_async(parsing, url_list)
-    # for text in ret:
-    #     print(text)
+
+
+@eel.expose
+def btn_get_folder():
+    root = Tk()
+    root.withdraw()
+    root.wm_attributes('-topmost', 1)
+    folder = filedialog.askdirectory()
+    return folder
+
+
+@eel.expose
+def btn_get_file():
+    root = Tk()
+    root.withdraw()
+    root.wm_attributes('-topmost', 1)
+    root.filename = filedialog.askopenfilename(initialdir="/", title="Select file",
+                                               filetypes=(("video files", "*.mp4"), ("all files", "*.*")))
+    return root.filename
 
 
 def parsing(url):
@@ -44,7 +63,8 @@ if __name__ == '__main__':
     # https://docs.python.org/3/library/multiprocessing.html#multiprocessing.freeze_support
     freeze_support()
     import bottle_websocket
+
     # Set web files folder and optionally specify which file types to check for eel.expose()
     pool = Pool(processes=2)
     eel.init('web', allowed_extensions=['.js', '.html'])
-    eel.start('index.html', close_callback=close_callback,  size=(800, 600))
+    eel.start('index.html', close_callback=close_callback, size=(800, 600))

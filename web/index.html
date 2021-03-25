@@ -3,21 +3,19 @@
 <head>
     <title>Hello, World!</title>
     <link rel="shortcut icon" type="image/jpg" href="favicon.ico"/>
+    <link rel="stylesheet" href="main.css">
 
     <!-- Include eel.js - note this file doesn't exist in the 'web' directory -->
     <script type="text/javascript" src="eel.js"></script>
-    <script type="text/javascript">
-        window.onload = function () {
-            document.onkeydown = function (e) {
-                return (e.which || e.keyCode) !== 116;
-            };
-        }
-
-    </script>
+    <script type="text/javascript" src="main.js"></script>
 </head>
 
 <body>
 Hello, World!
-<button onclick="eel.Open()">Test Python</button>
+<button onclick="eel.Open()">Test Python subprocess</button>
+
+<button onclick="getFolder()">Open folder</button>
+<button onclick="getFile()">Open file</button>
+
 </body>
 </html>
