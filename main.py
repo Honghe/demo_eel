@@ -33,6 +33,12 @@ def close_callback(closed_page_path, websockets):
     pool.terminate()
     pool.join()
 
+    # exit. copy from eel._websocket_close
+    from eel import gvt
+    if eel._shutdown:
+        eel._shutdown.kill()
+    eel._shutdown = gvt.spawn_later(1.0, eel._detect_shutdown)
+
 
 if __name__ == '__main__':
     # https://docs.python.org/3/library/multiprocessing.html#multiprocessing.freeze_support
