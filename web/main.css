@@ -11,3 +11,18 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.content {
+    /* font-family : monospace ; */
+    /* font-size : 100% ; */
+    background-color : white ;
+    color : #111 ;
+    max-width : 800px ;
+    min-width : 400px ;
+    min-height : 200px ;
+    padding : 1em ;
+    margin: auto;
+    border : thin solid gray ;
+    border-radius : 5px ;
+    display : block ;
+}
